@@ -1,0 +1,158 @@
+:root * {
+  font-family: "Heebo";
+}
+
+html {
+  // direction: rtl;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-weight: 800;
+  font-size: 16px;
+  background-color: $bg-color-2;
+  color: $primary-color;
+  width: 100%;
+}
+
+#root {
+  width: 100%;
+}
+
+// #root,
+// .App {
+//   height: 100%;
+// }
+
+img {
+  width: 100%;
+  object-fit: contain;
+}
+
+// a {
+//   text-decoration-line: none;
+//   color: $secondary-color;
+// }
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0 !important;
+  line-height: 1;
+}
+
+h1 {
+  font-size: 70pt;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 40pt;
+
+  @include atSmall {
+    font-size: 1.3em;
+  }
+}
+
+h3 {
+  font-size: 22pt;
+  margin-bottom: 16px;
+}
+
+h4 {
+  font-size: 16pt;
+  margin: 0;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+p {
+  font-size: 12pt;
+  margin: 0;
+  font-weight: 300;
+  line-height: 1.2;
+}
+
+label {
+  font-size: 14pt !important;
+  font-weight: 300;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+@include atSmall {
+  p {
+    font-size: 14pt;
+  }
+
+  h1 {
+    font-size: 70pt;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 40pt;
+  }
+
+  h3 {
+    font-size: 25pt;
+    margin-bottom: 16px;
+  }
+}
+
+#root {
+  height: 100%;
+}
+
+input[type="tel"],
+input[type="mail"],
+#user-details_email {
+  direction: ltr;
+  text-align: right;
+}
+
+.head-line {
+  @include flex(start, null, column);
+  gap: 20px;
+  position: relative;
+  margin-block: 50px;
+  img {
+    height: 106px;
+    width: auto;
+  }
+}
+
+.container {
+  @include atMedium {
+    margin: auto;
+    max-width: 592px;
+  }
+}
+
+.ant-layout {
+  height: 100vh;
+}
+
+.logo {
+  width: auto;
+}
+
+.editable-row .ant-form-item-explain {
+  position: absolute;
+  top: 100%;
+  font-size: 12px;
+}
+
+.ant-spin {
+  @include flexCenter();
+  height: 100%;
+}
+
+p a:hover {
+  color: lighten(#646cff, 10%);
+}

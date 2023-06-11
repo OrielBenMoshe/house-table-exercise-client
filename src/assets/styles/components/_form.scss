@@ -1,0 +1,30 @@
+.ant-form-item-required::before {
+    display: none !important;
+}
+
+.ant-input-number {
+    width: 200px;
+}
+
+form {
+    border: 2px solid $secondary-color;
+    padding: 16px !important;
+    border-radius: 12px;
+    box-shadow: $box-shadow;
+    .ant-input-disabled,
+    .ant-input[disabled],
+    .ant-input-number-disabled,
+    .ant-input-number-disabled .ant-input-number-input,
+    .ant-form-item-control-input-content p {
+        color: rgb(147 121 93);
+        background-color: transparent;
+        border: none !important;
+        font-weight: 600;
+        font-size: 18px !important;
+        padding: 0 !important;
+        cursor: initial;
+    }
+    .ant-form-item:last-child {
+        margin-bottom: 0;
+    }
+}

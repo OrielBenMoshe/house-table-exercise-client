@@ -1,0 +1,15 @@
+header.ant-layout-header {
+    @include flex(space-between, center);
+    gap: 42px;
+    #menu {
+      @include flex(space-between, center);
+      gap: 20px;
+      a {
+        color: $secondary-color;
+        font-size: 16px;
+        &:hover {
+          color: lighten($secondary-color, 30%);
+        }
+      }
+    }
+  }
