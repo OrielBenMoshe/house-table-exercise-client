@@ -156,3 +156,21 @@ input[type="mail"],
 p a:hover {
   color: lighten(#646cff, 10%);
 }
+
+.ant-btn-primary {
+  background-color: $secondary-color;
+}
+:where(.css-dev-only-do-not-override-12jzuas).ant-btn-primary:not(:disabled):hover {
+  background-color: lighten($secondary-color, 16%);
+}
+
+.ant-modal-title {
+  font-size: 20px !important;
+  text-align: center;
+  margin-block: 30px;
+  span.anticon {
+    color: lighten($secondary-color, 16%) !important;
+    font-size: 40px;
+    margin-bottom: 16px;
+  }
+}

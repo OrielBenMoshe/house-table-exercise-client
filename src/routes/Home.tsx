@@ -4,7 +4,7 @@ import { Button, Form, Input, InputNumber, Modal, Spin } from "antd";
 import { useState } from "react";
 import { createHouse } from "../services/api/house";
 import { useMutation } from "@tanstack/react-query";
-import { CheckCircleFilled } from "@ant-design/icons";
+import { CheckCircleFilled, ExclamationCircleFilled } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import { House } from "../services/types";
 
@@ -15,7 +15,7 @@ export default function Home(props: IHomeProps) {
 
   const [openModal, setOpenModal] = useState<boolean>(false);
   const [message, setMessage] = useState<string>();
-  const [houseId, setHouseId] = useState();
+  const [houseId, setHouseId] = useState(null);
   const [currentValue, setCurrentValue] = useState<number>(0);
 
   const { isLoading, mutate } = useMutation({
@@ -23,21 +23,19 @@ export default function Home(props: IHomeProps) {
       return createHouse(newHouse);
     },
     onSuccess(res) {
-      console.log("res:", res);
       if (res?.success) {
-        console.log("success");
         setHouseId(res.data.id);
         setMessage(res.msg);
       } else {
-        console.log("fail");
-        setMessage(res.response.data.msg);
+        setHouseId(null);
+        const errMsg = res.response?.data?.msg || res.message;
+        setMessage(errMsg);
       }
       setOpenModal(true);
     },
   });
 
   const onFinish = (values: House) => {
-    console.log(values);
     mutate(values);
   };
 
@@ -115,7 +113,7 @@ export default function Home(props: IHomeProps) {
       <Modal
         title={
           <>
-            <CheckCircleFilled style={{ color: "#1677ff" }} />
+            {houseId ? <CheckCircleFilled /> : <ExclamationCircleFilled />}
             <div>{message}</div>
           </>
         }
@@ -123,13 +121,18 @@ export default function Home(props: IHomeProps) {
         centered={true}
         okText={"Show house details"}
         cancelText={"close"}
-        onCancel={() => setOpenModal(false)}
+        onCancel={() => {
+          setOpenModal(false);
+          form.resetFields();
+        }}
         okButtonProps={{ style: { display: "none" } }}
       >
-        <p>
-          {`To get to the house details page ID number ${houseId}, `}
-          <Link to={`house/${houseId}`}>Click here →</Link>
-        </p>
+        {houseId && (
+          <p>
+            {`To get to the house details page ID number ${houseId}, `}
+            <Link to={`house/${houseId}`}>Click here </Link>
+          </p>
+        )}
       </Modal>
     </div>
   );

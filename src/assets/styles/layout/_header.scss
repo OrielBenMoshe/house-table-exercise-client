@@ -2,14 +2,21 @@ header.ant-layout-header {
     @include flex(space-between, center);
     gap: 42px;
     #menu {
-      @include flex(space-between, center);
-      gap: 20px;
-      a {
-        color: $secondary-color;
-        font-size: 16px;
-        &:hover {
-          color: lighten($secondary-color, 30%);
+        @include flex(space-between, center);
+        gap: 20px;
+        a {
+            color: $secondary-color;
+            font-size: 16px;
+            &:hover {
+                color: lighten($secondary-color, 30%);
+            }
         }
-      }
     }
-  }
+    h3 {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        color: lighten($secondary-color, 20%);
+        font-weight: 100;
+    }
+}

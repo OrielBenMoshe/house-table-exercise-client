@@ -11,8 +11,9 @@ function App() {
         <Header id="Header">
           <nav id="menu">
             {/* <NavLink to="/houses">List</NavLink> */}
-            <NavLink to="/">Home page</NavLink>
+            <NavLink to="/">Home</NavLink>
           </nav>
+          <h3>Home exercise</h3>
           <img className="logo" src={housetableLogo} alt="" />
         </Header>
         <Content id="Content">
